@@ -11,7 +11,8 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-Give examples
+To install files, make sure you run "composer install" in your projects root directory
+
 ```
 
 ### Installing

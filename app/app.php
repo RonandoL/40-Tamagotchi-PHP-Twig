@@ -4,8 +4,8 @@
     require_once __DIR__."/../src/tamagotchi.php";
 
     session_start();                          // For global variable, saving in browser cache
-    if (empty($_SESSION['array_of_tamagotchis'])) {
-        $_SESSION['array_of_tamagotchis'] = array();
+    if (empty($_SESSION['list_of_tamagotchis'])) {
+        $_SESSION['list_of_tamagotchis'] = array();
     }
 
     $app = new Silex\Application();
@@ -23,9 +23,9 @@
     // 2. Route for sending instantiated new object (new task) to /tasks URL
     $app->post('/gotchi', function() use ($app) {
         $tamagotchi = new Tamagotchi(ucfirst($_POST['name']));    // instantiation of Tamagotchi object
-        $save = $tamagotchi->save();    // save Tamagotchi object
+        $tamagotchi->save();    // save Tamagotchi object
 
-        return $app['twig']->render('new_tamagotchi.html.twig', array('newtamagotchi' => $tamagotchi));
+        return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
     // 3. POST Route for deleting all Tamagotchis
