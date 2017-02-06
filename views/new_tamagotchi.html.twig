@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>New Tamagotchi Pet</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/css/styles.css'>  <!-- Why does this css mapping work???? -->
+  </head>
+
+  <body>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <h2>New Tamagotchi Pet</h2>
+          <ul>
+              <li> {{ newtamagotchi.getName }} </li>
+          </ul>
+
+          <form action='/'>
+            <button type='submit' class='btn btn-sm' autofocus>go back home</button>
+          </form>
+
+        </div>  <!-- .col-md-6 -->
+      </div>  <!-- .row -->
+
+    </div>  <!-- .container -->
+
+  </body>
+</html>

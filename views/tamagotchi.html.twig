@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Tamagotchi Pet</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/css/styles.css'>  <!-- Why does this css mapping work???? -->
+  </head>
+
+  <body>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <h2>Tamagotchi Pet</h2>
+
+          <form action='/gotchi' method='post'>
+            <div class='form-group'>
+              <label for='name'>Enter Tamagotchi Pet Name</label>
+              <input type='text' name='name' id='name' class='form-control' placeholder='i.e. Choni' autofocus>
+            </div>
+            <button type='submit' class='btn btn-sm btn-warning'>Submit</button>
+          </form>
+
+          <br>
+          <form action='/delete' method='post'>
+            <button type='submit' class='btn btn-sm'>Delete Tamagotchi</button>
+          </form>
+
+        </div>  <!-- .col-md-6 -->
+      </div>  <!-- .row -->
+
+      <div class='row'>
+          <div class='col-md-6'>
+              <hr>
+
+              {% if tamagotchis is not empty %}
+                  <h3>Your Tamagotchis</h3>
+                  <ul>
+                  {% for tamagotchi in tamagotchis  %}
+                      <li> {{ tamagotchi.getName }} </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+          </div>
+      </div>  <!-- .row -->
+    </div>  <!-- .container -->
+
+  </body>
+</html>
