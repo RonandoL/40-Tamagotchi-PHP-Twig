@@ -28,6 +28,17 @@
         return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
+    // 3. AGE Route
+    $app->post('/age', function() use ($app) {
+        $tamagotchis = Tamagotchi::getAll();
+
+        foreach ($tamagotchis as $tamagotchi) {
+          $tamagotchi->age();
+        }
+
+        return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
+
     // 3. POST Route for deleting all Tamagotchis
     $app->post('/delete', function() use ($app) {
       Tamagotchi::deleteAll();

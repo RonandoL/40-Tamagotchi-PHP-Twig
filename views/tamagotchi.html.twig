@@ -33,12 +33,15 @@
       <div class='row'>
           <div class='col-md-6'>
               <hr>
+              <form action='/age' method='post'>
+                <button type='submit' class='btn btn-sm btn-primary'>Age One Day</button>
+              </form>
 
               {% if tamagotchis is not empty %}
                   <h3>Your Tamagotchis</h3>
                   <ul>
                   {% for tamagotchi in tamagotchis  %}
-                      <li> {{ tamagotchi.getName }} </li>
+                      <li>Name: {{ tamagotchi.getName }}, Age: {{ tamagotchi.getAge }}</li>
                   {% endfor %}
                 </ul>
               {% endif %}
