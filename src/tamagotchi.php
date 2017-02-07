@@ -3,17 +3,19 @@
     {
       private $name;
       private $age;
-      // private $food;
-      // private $attention;
-      // private $sleep;
-      // life;
+      private $food;
+      private $happiness;
+      private $sleepiness;
+      private $life;
 
       function __construct($name)
       {
           $this->name = $name;
           $this->age = 1;
-          // $this->food = rand(4,10);
-          // $this->attention = rand(2, 8);
+          $this->food = rand(5, 15);
+          $this->happiness = rand(5, 18);
+          $this->sleepiness = rand(6, 12);
+          $this->life = true;
       }
 
       function getName()
@@ -26,10 +28,28 @@
           return $this->age;
       }
 
+      function getFood()
+      {
+          return $this->food;
+      }
+
+      function getHappiness()
+      {
+          return $this->happiness;
+      }
+
+      function getSleepiness()
+      {
+          return $this->sleepiness;
+      }
+
       // This is what happens when we "age" the pet
       function age()
       {
           $this->age += 1;
+          $this->food -=1;
+          $this->happiness -=2;
+          $this->sleepiness -=1;
       }
 
         // SAVE object to array

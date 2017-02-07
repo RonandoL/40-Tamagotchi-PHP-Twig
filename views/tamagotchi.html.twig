@@ -41,7 +41,7 @@
                   <h3>Your Tamagotchis</h3>
                   <ul>
                   {% for tamagotchi in tamagotchis  %}
-                      <li>Name: {{ tamagotchi.getName }}, Age: {{ tamagotchi.getAge }}</li>
+                      <li>Name: {{ tamagotchi.getName }}, Age: {{ tamagotchi.getAge }}, Food: {{ tamagotchi.getFood }}, Happiness: {{ tamagotchi.getHappiness }}, Sleep: {{ tamagotchi.getSleepiness }}</li>
                   {% endfor %}
                 </ul>
               {% endif %}
