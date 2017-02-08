@@ -18,6 +18,7 @@
           $this->life = true;
       }
 
+      // GETTERS
       function getName()
       {
           return $this->name;
@@ -42,8 +43,21 @@
       {
           return $this->sleepiness;
       }
+      function getLife()
+      {
+          return $this->life;
+      }
 
-      // This is what happens when we "age" the pet
+      // CheckLife
+      function checkLife()
+      {
+          if ($this->age > 6) {
+            $this->life = false;
+          }
+          return $this->life;
+      }
+
+      // AGE PET - This is what happens when we "age" the pet one day
       function age()
       {
           $this->age += 1;
@@ -52,23 +66,29 @@
           $this->sleepiness -=1;
       }
 
-        // SAVE object to array
-        function save()
-        {
-            array_push($_SESSION['list_of_tamagotchis'], $this);
-        }
+      // FEED pet
+      function feed()
+      {
+          $this->food += 3;
+      }
 
-        // GET ALL objects from Array
-        static function getAll()
-        {
-            return $_SESSION['list_of_tamagotchis'];
-        }
+          // SAVE object to array
+          function save()
+          {
+              array_push($_SESSION['list_of_tamagotchis'], $this);
+          }
 
-        // DELETE ALL Objects in array - empty array
-        static function deleteAll()
-        {
-            $_SESSION['list_of_tamagotchis'] = array();
-        }
+          // GET ALL objects from Array
+          static function getAll()
+          {
+              return $_SESSION['list_of_tamagotchis'];
+          }
+
+          // DELETE ALL Objects in array - empty array
+          static function deleteAll()
+          {
+              $_SESSION['list_of_tamagotchis'] = array();
+          }
 
 
     }
