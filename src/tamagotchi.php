@@ -51,7 +51,7 @@
       // CheckLife
       function checkLife()
       {
-          if ($this->age > 9 || $this->food <= 0) {
+          if ($this->age > 9 || $this->food <= 0 || $this->happiness <= 0|| $this->sleepiness <= 0) {
             $this->life = false;
           }
           return $this->life;
@@ -62,7 +62,7 @@
       {
           $this->age += 1;
           $this->food -=1;
-          $this->happiness -=2;
+          $this->happiness -=1;
           $this->sleepiness -=1;
       }
 
