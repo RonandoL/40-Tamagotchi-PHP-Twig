@@ -36,7 +36,6 @@
           <form action='/age' method='post'>
             <button type='submit' class='btn btn-sm btn-primary'>Age One Day</button>
           </form>
-          <br>
 
           {% for tamagotchi in tamagotchis %}
               {% if tamagotchi.getName is not empty  %}       <!-- doesn't display pets with no names -->
@@ -47,6 +46,11 @@
                       <h5>Food: {{ tamagotchi.getFood }}</h5>
                       <h5>Happiness: {{ tamagotchi.getHappiness }}</h5>
                       <h5>Sleep: {{ tamagotchi.getSleepiness }}</h5>
+
+                      <form action='/feed' method='post'>
+                        <button type='submit' name='name' class='btn btn-sm btn-success' value='{{ tamagotchi.getName }}'>Feed {{ tamagotchi.getName }}</button>
+                      </form>
+
                   {% else %}
                       <p>it dead</p>
                   {% endif %}

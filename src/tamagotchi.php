@@ -13,8 +13,8 @@
           $this->name = $name;
           $this->age = 1;
           $this->food = rand(5, 15);
-          $this->happiness = rand(5, 18);
-          $this->sleepiness = rand(6, 12);
+          $this->happiness = rand(2, 6);
+          $this->sleepiness = rand(7, 12);
           $this->life = true;
       }
 
@@ -51,7 +51,7 @@
       // CheckLife
       function checkLife()
       {
-          if ($this->age > 9 || $this->food <= 0 || $this->happiness <= 0|| $this->sleepiness <= 0) {
+          if ($this->age > 19 || $this->food <= 0 || $this->happiness <= 0|| $this->sleepiness <= 0) {
             $this->life = false;
           }
           return $this->life;

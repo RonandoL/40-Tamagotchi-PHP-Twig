@@ -4,9 +4,9 @@
     require_once __DIR__."/../src/tamagotchi.php";
 
     session_start();                          // For global variable, saving in browser cache
-    $allPets = $_SESSION['list_of_tamagotchis'];
-    if (empty($allPets)) {
-        $allPets = array();
+    // $allPets = $_SESSION['list_of_tamagotchis'];
+    if (empty($_SESSION['list_of_tamagotchis'])) {
+        $_SESSION['list_of_tamagotchis'] = array();
     }
 
     $app = new Silex\Application();
@@ -40,22 +40,16 @@
         return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
-    // IF ALIVE Route
-    // $app->post('/alive' function() use ($app) {
-
-
-    // });
-
     // FEED Route
-    // $app->post('/feed', function() use ($app) {
-    //     // $allPets = $_SESSION['list_of_tamagotchis'];
-    //     foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
-    //       if ($tamagotchi->getName() == $_POST['name']) {
-    //         $tamagotchi->feed();
-    //       }
-    //     }
-    //     return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
-    // });
+    $app->post('/feed', function() use ($app) {
+        // $allPets = $_SESSION['list_of_tamagotchis'];
+        foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+          if ($tamagotchi->getName() == $_POST['name']) {
+            $tamagotchi->feed();
+          }
+        }
+        return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
 
 
     // DELETE POST Route for deleting all Tamagotchis
