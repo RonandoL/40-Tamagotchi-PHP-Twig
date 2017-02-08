@@ -112,6 +112,5 @@
               $_SESSION['list_of_tamagotchis'] = array();
           }
 
-
     }
 ?>

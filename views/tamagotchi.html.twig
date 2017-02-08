@@ -49,6 +49,13 @@
                           <h5>Happiness: {{ tamagotchi.getHappiness }}</h5>
                           <h5>Sleep: {{ tamagotchi.getSleepiness }}</h5>
                         </div>
+                        <div class="col-sm-6">
+                          {% if tamagotchi.getFood <=2 or tamagotchi.getHappiness <= 2 or tamagotchi.getSleepiness <=2 %}
+                              <img src='http://orig00.deviantart.net/774e/f/2008/304/9/6/pokebaw___charmander_by_pokemon_walrus.png'>
+                          {% else %}
+                              <img src='https://s-media-cache-ak0.pinimg.com/originals/dc/75/b9/dc75b96b4141c0a0f5d2658b084e170b.png'>
+                          {% endif %}
+                        </div>
                       </div>
 
                       <div class="row">
@@ -70,7 +77,14 @@
                       </div>
 
                   {% else %}
-                      <p>it dead</p>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <h3>It dead. You done messed up.</h3>
+                      </div>
+                      <div class="col-sm-6">
+                        <img src='http://img14.deviantart.net/0889/i/2009/108/9/1/dining_with_charmander_by_glumandafeind.jpg'>
+                      </div>
+                    </div>  <!-- .row -->
                   {% endif %}
               </div>
               {% endif %}
