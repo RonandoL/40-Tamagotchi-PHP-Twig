@@ -12,9 +12,9 @@
       {
           $this->name = $name;
           $this->age = 1;
-          $this->food = rand(5, 15);
-          $this->happiness = rand(2, 6);
-          $this->sleepiness = rand(7, 12);
+          $this->food = rand(5, 9);
+          $this->happiness = rand(3, 8);
+          $this->sleepiness = rand(3, 6);
           $this->life = true;
       }
 
@@ -36,20 +36,33 @@
           $this->sleepiness -=1;
       }
 
-      // FEED pet
-      function feed()
-      {
-          $this->food += 3;
-
-      }
-
-      // AGE ALL PETS - when feeding, etc.
+      // AGE ALL PETS - when feeding, playing, etc.
       static function ageAll()
       {
           foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
             $tamagotchi->age();
           }
       }
+
+      // FEED pet
+      function feed()
+      {
+          $this->food += rand(3, 7);
+      }
+
+      // PLAY WITH PET to increase Happiness
+      function happiness()
+      {
+          $this->happiness += rand(2, 5);
+      }
+
+      // SLEEP Pet
+      function sleep()
+      {
+          $this->sleepiness += 3;
+      }
+
+
 
           // GETTERS --------------------------------------------
           function getName()

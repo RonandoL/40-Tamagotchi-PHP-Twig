@@ -41,15 +41,33 @@
               {% if tamagotchi.getName is not empty  %}       <!-- doesn't display pets with no names -->
               <div class="pet">
                   {% if tamagotchi.checkLife %}
-                      <h3>{{ tamagotchi.getName }}</h3>
-                      <h5>Age: {{ tamagotchi.getAge }}</h5>
-                      <h5>Food: {{ tamagotchi.getFood }}</h5>
-                      <h5>Happiness: {{ tamagotchi.getHappiness }}</h5>
-                      <h5>Sleep: {{ tamagotchi.getSleepiness }}</h5>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <h3>{{ tamagotchi.getName }}</h3>
+                          <h5>Age: {{ tamagotchi.getAge }}</h5>
+                          <h5>Food: {{ tamagotchi.getFood }}</h5>
+                          <h5>Happiness: {{ tamagotchi.getHappiness }}</h5>
+                          <h5>Sleep: {{ tamagotchi.getSleepiness }}</h5>
+                        </div>
+                      </div>
 
-                      <form action='/feed' method='post'>
-                        <button type='submit' name='name' class='btn btn-sm btn-success' value='{{ tamagotchi.getName }}'>Feed {{ tamagotchi.getName }}</button>
-                      </form>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <form action='/feed' method='post'>
+                            <button type='submit' name='name' class='btn btn-sm btn-success' value='{{ tamagotchi.getName }}'>Feed {{ tamagotchi.getName }}</button>
+                          </form>
+                        </div>
+                        <div class="col-sm-3">
+                          <form action='/happiness' method='post'>
+                            <button type='submit' name='name' class='btn btn-sm btn-danger' value='{{ tamagotchi.getName }}'>Play With {{ tamagotchi.getName }}</button>
+                          </form>
+                        </div>
+                        <div class="col-sm-3">
+                          <form action='/sleep' method='post'>
+                            <button type='submit' name='name' class='btn btn-sm btn-info' value='{{ tamagotchi.getName }}'>{{ tamagotchi.getName }} takes a nap</button>
+                          </form>
+                        </div>
+                      </div>
 
                   {% else %}
                       <p>it dead</p>

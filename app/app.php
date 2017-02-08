@@ -48,7 +48,31 @@
             $tamagotchi->feed();
           }
         }
-        Tamagotchi::ageAll();  // we feed one pet but all pets age
+        Tamagotchi::ageAll();  // we feed one pet but all pets age - do this for all activities
+
+        return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
+
+    // HAPPINESS Route
+    $app->post('/happiness', function() use ($app) {
+        foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+          if ($tamagotchi->getName() == $_POST['name']) {
+            $tamagotchi->happiness();
+          }
+        }
+        Tamagotchi::ageAll();
+
+        return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
+
+    // SLEEP Route
+    $app->post('/sleep', function() use ($app) {
+        foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+          if ($tamagotchi->getName() == $_POST['name']) {
+            $tamagotchi->sleep();
+          }
+        }
+        Tamagotchi::ageAll();
 
         return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
