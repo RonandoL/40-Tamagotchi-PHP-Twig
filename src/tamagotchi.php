@@ -18,36 +18,6 @@
           $this->life = true;
       }
 
-      // GETTERS
-      function getName()
-      {
-          return $this->name;
-      }
-
-      function getAge()
-      {
-          return $this->age;
-      }
-
-      function getFood()
-      {
-          return $this->food;
-      }
-
-      function getHappiness()
-      {
-          return $this->happiness;
-      }
-
-      function getSleepiness()
-      {
-          return $this->sleepiness;
-      }
-      function getLife()
-      {
-          return $this->life;
-      }
-
       // CheckLife
       function checkLife()
       {
@@ -70,7 +40,46 @@
       function feed()
       {
           $this->food += 3;
+
       }
+
+      // AGE ALL PETS - when feeding, etc.
+      static function ageAll()
+      {
+          foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+            $tamagotchi->age();
+          }
+      }
+
+          // GETTERS --------------------------------------------
+          function getName()
+          {
+              return $this->name;
+          }
+
+          function getAge()
+          {
+              return $this->age;
+          }
+
+          function getFood()
+          {
+              return $this->food;
+          }
+
+          function getHappiness()
+          {
+              return $this->happiness;
+          }
+
+          function getSleepiness()
+          {
+              return $this->sleepiness;
+          }
+          function getLife()
+          {
+              return $this->life;
+          }
 
           // SAVE object to array
           function save()

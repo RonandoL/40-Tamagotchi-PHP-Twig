@@ -48,6 +48,8 @@
             $tamagotchi->feed();
           }
         }
+        Tamagotchi::ageAll();  // we feed one pet but all pets age
+
         return $app['twig']->render('tamagotchi.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
